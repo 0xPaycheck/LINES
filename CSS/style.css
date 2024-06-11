@@ -1,0 +1,24 @@
+/* Establecer los márgenes y el padding a cero */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden; /* Evitar desplazamiento vertical */
+}
+
+/* Crear el fondo degradado */
+.background {
+    height: 100vh;
+    background: linear-gradient(to bottom, red, black);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilo para las líneas geométricas */
+.line {
+    position: absolute;
+}
