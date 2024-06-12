@@ -18,7 +18,96 @@ body, html {
     overflow: hidden;
 }
 
+@font-face {
+    font-family: 'NuevaFuente';
+    src: url('../Fonts/fuente.ttf') format('truetype'); /* Ruta relativa al archivo de la fuente */
+}
+
+/* Estilo para el texto */
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px; /* Tamaño inicial pequeño */
+    font-family: 'NuevaFuente', sans-serif; /* Usa el nombre de la fuente especificado en @font-face */
+    color: rgba(255, 255, 255, 0.5); /* Color blanco medio transparente */
+    opacity: 0; /* Inicialmente no visible */
+    transition: font-size 5s ease, opacity 5s ease; /* Transición de tamaño y opacidad (más lenta) */
+    overflow: visible; /* Permite que el texto se salga de la pantalla */
+    white-space: nowrap; /* Evita el ajuste de línea */
+}
+
+
+/* Animación para hacer aparecer el texto */
+.text.appear {
+    font-size: 2000px; /* Tamaño máximo grande (más grande para salirse de la pantalla) */
+    opacity: 1; /* Hacer el texto visible */
+}
+
+
+/* Animación para hacer desaparecer el texto */
+.text.disappear {
+    font-size: 0; /* Tamaño mínimo */
+    opacity: 0; /* Hacer el texto invisible */
+}
+
 /* Estilo para las líneas geométricas */
 .line {
     position: absolute;
+    left: 0; /* Asegurar que todas las líneas están alineadas al borde izquierdo */
+    width: 200px; /* Mantener el tamaño inicial del SVG */
+    height: 10px; /* Mantener la altura del SVG */
+    stroke: rgba(255, 255, 255, 0.5); /* Color blanco medio transparente */
+    stroke-width: 2;
+}
+
+/* Estilos para el formulario */
+.user-input-form {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Sombra */
+    opacity: 0; /* Inicialmente no visible */
+    transition: opacity 1s ease; /* Transición de opacidad (lenta) */
+}
+
+.user-input-form.appear {
+    opacity: 1; /* Hacer el formulario visible gradualmente */
+}
+
+/* Estilos para el campo de texto */
+.user-input-form input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    color: #ffffff; /* Texto blanco */
+    font-size: 16px;
+    width: 200px;
+}
+
+/* Estilos para el botón */
+.user-input-form button[type="submit"] {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4500; /* Rojo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Cambiar el color del botón al pasar el mouse */
+.user-input-form button[type="submit"]:hover {
+    background-color: #cc3700; /* Rojo más claro */
+}
+
+/* Clase para mostrar gradualmente el formulario */
+.user-input-form.appear {
+    opacity: 1; /* Hacer el formulario visible */
 }
